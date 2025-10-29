@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --muted: #141516;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+      --accent-2: #8b5cf6;
+      --ring: rgba(56, 189, 248, 0.45);
+      --radius: 18px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+      background: radial-gradient(1200px 800px at 15% -10%, rgba(56,189,248,.08), transparent 60%),
+                  radial-gradient(1200px 800px at 85% -10%, rgba(116, 104, 143, 0.08), transparent 60%),
+                  var(--clr-bg);
+      color: black;
+      line-height: 1.65;
+      --_shadow:var(--_shadow, light blue);
+      background:white; 
+    }
+/*linear-gradient(to right, white, #6a0dad, #0000ff)*/
+
+    .nav{
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      background: white; 
+     color: purple;
+     padding: 20px;
+     text-align: center;
+    }
+
+   
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    nav a {
+      margin-left: 20px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    h1, h2, h3 { margin: 0; }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 24px;
+    }
+  
+    nav ul{
+      display: flex; 
+      list-style: none; 
+      gap: 2rem;}
+
+    nav a { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.18);
+      background: rgba(148,163,184,.08);
+      text-decoration: none;
+      color: purple;
+      transition: transform .15s ease;}
+
+    nav a:hover/*,nav a.active*/{ 
+      transform: translateY(-1px); border-color: rgba(56,189,248,.45);}
+
+    .btn {
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn:hover { filter: brightness(1.1); }
+
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    
+    .blog-card {
+      background: var(--shadow);
+      border: radius 0.75em;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 70px 100px rgba(40, 50, 160, 0.35);
+    }
+
+    .card h3 { margin-top: 12px; }
+    .card p { color: var(--muted); }
+
+
+ .footer-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+     gap: 30px;
+     max-width: 1100px;
+     margin: 0 auto;
+    }
+
+    
+     .footer-section h3 {
+     margin-bottom: 10px;
+     color: #38bdf8;
+     }
+
+    .footer-section ul {
+     list-style: none;
+     padding: 0;
+    }
+
+    .footer-section ul li {
+    margin-bottom: 6px;
+    }
+
+    .footer-section a {
+     color: #e5e7eb;
+     text-decoration: none;
+    }
+
+     .footer-section a:hover {
+     color: #38bdf8;
+     }
+
+     footer p {
+     margin: 6px 0;
+     }
+
+     footer .copyright {
+     text-align: center;
+     margin-top: 20px;
+     color: #94a3b8;
+     font-size: 14px;
+     }
+
+     footer {
+     background: linear-gradient(to bottom, white, #6a0dad, #0000ff);
+     color: white;
+     padding: 6px;
+     text-align: center;
+     }
+
+     .autoShow{
+      animation: text-appear both;
+      animation-timeline: view() ;
+      animation-range: entry 20% cover 100%vh;
+     }
+
+     @keyframes text-appear{
+      from{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+     }
+
+     .imageReveal{
+      animation: imageReveal both;
+      animation-timeline: view (50% 20%);
+     }
+
+
+    @keyframes imageReveal{
+      from{
+        filter: saturate(0) contrast(4) brightness(.1) blur(5px);
+        opacity: 0;
+        scale: .95;
+        translate: 0 4rem;
+      }
+    }
+      to{
+        filter: none;
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+      }
+   
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fffde7, #fff);
+      color: #333;;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: purple;
+      font-size: 2.5rem;
+    }
+
+    .game-box {
+      background-color: #fff;
+      border: 2px solid purple;
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="number"] {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #fdd835;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #fbc02d;
+    }
+
+    .feedback {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .score {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      color: #333;
+    }
+
+    .quiz-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f9f9f9;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .options button:hover {
+      background: #e0f7fa;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .game-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .game-container h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  .instruction {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+
+  .grammar-question {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .grammar-options button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .grammar-options button:hover {
+    background: #d0f0ff;
+  }
+
+  .grammar-result {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="edulearn logo.png" width="170" height="70">
+      </div>
+      <nav> 
+        <ul>
+          <li><a href="Home.html" class="nav-link active" data-page="Home_page">Home</a></li>
+          <li> <a href="About_Us.html" class="nav-link active" data-page="About_us"> About Us</a></li>
+          <li> <a href="Projects.html"class="nav-link active" data-page="course"> Projects</a> </li>
+          <li> <a href="Blog.html" class="nav-link active" data-page="About_us">Blog</a></li>
+          <li> <a href="Contact_us.html" class="nav-link active" data-page="contact">Contact Us </a></li>
+        </ul>
+      </nav>
+    </header>
+    <header>
+    <h1>Our Tutoring Blog</h1>
+    <p>Tips, resources, and success stories for students</p>
+  </header>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+    <!-- Blog Post 1 -->
+    <div class="blog-card" >
+      <img src="Blue Colorful Playful Illustrative Mathematic Class Classroom Banner.png" alt="Math Study" width="1100" height="200" class="imageReveal">
+      <div class="blog-content autoShow">
+        <h3 class="autoShow">5 Ways to Ace Your Maths Exam</h3>
+        <p class="autoShow"><b>1. Master the Basics First</b>
+          Before tackling complex problems, make sure you have a solid understanding of fundamental concepts such as algebra, fractions, and equations. 
+          These basics are the building blocks for more advanced questions.</p>
+         <section class="blog-container">
+    <h5 style="font-weight: bold;"> *The following is a sneak peak of the fun learning games we will provide to the young mind which will start off basic and end off at an advanced level*</h4>
+    <h1>🧠 Maths Game</h1>
+  <div class="game-box">
+    <div class="question" id="question">Loading...</div>
+    <input type="number" id="answer" placeholder="Your answer">
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+    <div class="feedback" id="feedback"></div>
+    <div class="score" id="score">Score: 0</div>
+  </div>
+
+  <script>
+    let num1, num2, operator, correctAnswer;
+    let score = 0;
+
+    function generateQuestion() {
+      num1 = Math.floor(Math.random() * 10) + 1;
+      num2 = Math.floor(Math.random() * 10) + 1;
+      const operators = ['+', '-', '*'];
+      operator = operators[Math.floor(Math.random() * operators.length)];
+
+      switch (operator) {
+        case '+':
+          correctAnswer = num1 + num2;
+          break;
+        case '-':
+          correctAnswer = num1 - num2;
+          break;
+        case '*':
+          correctAnswer = num1 * num2;
+          break;
+      }
+
+      document.getElementById('question').textContent = `What is ${num1} ${operator} ${num2}?`;
+      document.getElementById('answer').value = '';
+      document.getElementById('feedback').textContent = '';
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById('answer').value);
+      if (userAnswer === correctAnswer) {
+        score++;
+        document.getElementById('feedback').textContent = '✅ Correct!';
+      } else {
+        document.getElementById('feedback').textContent = `❌ Incorrect. The answer was ${correctAnswer}.`;
+      }
+      document.getElementById('score').textContent = `Score: ${score}`;
+      setTimeout(generateQuestion, 1000);
+    }
+
+    generateQuestion();
+  </script>
+        <p class="autoShow"><b>2. Practice Past Papers</b>
+          Working through previous exam papers helps you identify common question patterns and manage your time effectively. 
+          It also allows you to become comfortable with the exam format and highlight areas where you need improvement.</p>
+
+        <p class="autoShow"><b>3. Show Your Work Clearly</b>
+           Even if you do not reach the final answer, showing step-by-step solutions can earn you partial marks. 
+           Neat, organized workings also help you avoid careless mistakes and allow you to review your process.</p>
+
+        <p class="autoShow"><b>4. Use Short, Consistent Study Sessions</b>
+          Instead of cramming the night before, break your study time into shorter daily sessions. 
+          Revisiting concepts regularly helps strengthen memory and ensures you understand the material rather than just memorizing it.</p>
+
+        <p class="autoShow"><b>5. Stay Calm and Confident</b>
+          Anxiety can cloud your thinking. 
+          Practice breathing techniques, get enough rest before the exam, and approach each question with a clear mind.
+          Confidence, paired with preparation, is key to performing well.</p>
+      </div>
+    </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <!-- Blog Post 2 -->
+    <div class="blog-card">
+      <img src="Pink Blue Simple English Classroom Banner.png" alt="English Vocabulary" width="1100" height="200" class="imageReveal">
+      <div class="blog-content">
+        <h3 class="autoShow">Fun English Vocabulary Games</h3>
+        <h5 style="font-weight: bold;"> *The following is a sneak peak of the fun learning games we will provide to the young mind which will start off basic and end off at an advanced level*</h4>
+        <div class="game-container" id="grammar-game">
+  <h2>🧠 Grammar Fix Challenge</h2>
+  <p class="instruction">Choose the correct version of the sentence:</p>
+  <div class="grammar-question" id="grammar-question">Loading...</div>
+  <div class="grammar-options" id="grammar-options"></div>
+  <div class="grammar-result" id="grammar-result"></div>
+</div>
+<script>
+  const grammarData = [
+    {
+      question: "Which sentence is correct?",
+      options: [
+        "She don't like apples.",
+        "She doesn't likes apples.",
+        "She doesn't like apples.",
+        "She not like apples."
+      ],
+      answer: "She doesn't like apples."
+    },
+    {
+      question: "Choose the correct sentence:",
+      options: [
+        "I has a dog.",
+        "I have a dog.",
+        "I haves a dog.",
+        "I having a dog."
+      ],
+      answer: "I have a dog."
+    },
+    {
+      question: "Pick the grammatically correct sentence:",
+      options: [
+        "They was going to the park.",
+        "They were going to the park.",
+        "They going to the park.",
+        "They gone to the park."
+      ],
+      answer: "They were going to the park."
+    }
+  ];
+
+  let grammarIndex = 0;
+
+  function loadGrammarQuestion() {
+    const q = grammarData[grammarIndex];
+    document.getElementById("grammar-question").textContent = q.question;
+    const optionsDiv = document.getElementById("grammar-options");
+    optionsDiv.innerHTML = "";
+    q.options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.onclick = () => checkGrammarAnswer(opt);
+      optionsDiv.appendChild(btn);
+    });
+    document.getElementById("grammar-result").textContent = "";
+  }
+
+  function checkGrammarAnswer(selected) {
+    const correct = grammarData[grammarIndex].answer;
+    const result = document.getElementById("grammar-result");
+    if (selected === correct) {
+      result.textContent = "✅ Correct!";
+      result.style.color = "green";
+    } else {
+      result.textContent = `❌ Incorrect. Correct answer: "${correct}"`;
+      result.style.color = "red";
+    }
+    grammarIndex = (grammarIndex + 1) % grammarData.length;
+    setTimeout(loadGrammarQuestion, 2500);
+  }
+
+  loadGrammarQuestion();
+</script>
+
+
+
+
+
+        <p class="autoShow">Make learning new words exciting with engaging games and activities that build confidence...</p>
+       <p class="autoShow"><b> 1. Word Bingo</b>
+         Create bingo cards filled with new vocabulary words.
+          As the teacher calls out definitions, students mark the matching word. 
+          The first to complete a line wins! This game sharpens listening skills and reinforces meaning.</p>
+
+        <p class="autoShow"><b>2. Charades with Words</b>
+         Instead of acting out movies, act out vocabulary words! 
+         For example, mime "climbing," "shivering," or "celebrate." 
+         This game encourages creativity while helping learners remember words through movement.</p>
+
+        <p class="autoShow"><b>3. Pictionary with Vocabulary</b>
+        Draw the meaning of a word instead of writing it. 
+        For example, sketch a "volcano" or "whisper." 
+        This works especially well for visual learners and helps cement word meanings in a fun way.</p>
+
+        <p class="autoShow"><b>4. Word Matching Race</b>
+         Write words on one set of cards and definitions on another. 
+         Students race against the clock (or each other) to match them correctly. 
+         Speed and repetition make the words stick faster.</p>
+      </div>
+    </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <!-- Blog Post 3 -->
+    <div class="blog-card">
+      <img src="Brown Paper Motivation Quote Linked in Banner.png" alt="Science Learning" width="1100" height="200" class="imageReveal">
+      <div class="blog-content">
+        <h3 class="autoShow">How to Stay Motivated While Studying</h3>
+        <p class="autoShow"><b>1. Set Clear Goals</b>
+         Break your study material into small, achievable goals. 
+         Instead of “study everything for the exam,” aim for “complete three math exercises” or “learn five new vocabulary words.” 
+         Clear goals give you a sense of accomplishment and keep you moving forward.</p>
+
+        <p class="autoShow"><b>2. Create a Routine</b>
+        Consistency is key. Designate specific times for studying each day, and stick to them. 
+        When studying becomes part of your routine, it feels less like a chore and more like a habit.</p>
+
+        <p class="autoShow"><b>3. Take Regular Breaks</b>
+        Avoid burnout by using techniques like the Pomodoro method—study for 25 minutes, then take a 5-minute break. 
+        Short breaks refresh your mind, increase focus, and make long study sessions more manageable.</p>
+
+        <p class="autoShow"><b>4. Reward Yourself</b>
+        Give yourself small rewards when you reach study milestones. 
+        This could be a snack, a short walk, or a few minutes on social media. 
+        Rewards reinforce positive behavior and make studying more enjoyable.</p>
+
+        <p class="autoShow"><b>5. Stay Positive and Visualize Success</b>
+        Remind yourself why you’re studying. Visualize achieving your goals—like acing an exam or mastering a topic. 
+        Positive thinking boosts motivation and strengthens your commitment.
+
+        <p class="autoShow"><b>6. Study with Friends or Groups</b>
+         Sometimes, a study buddy can make a huge difference. 
+         Group studies encourage accountability, allow idea sharing, and make learning more engaging.</p>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+     <footer>
+     <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About_Us.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="Contact_us.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: <a href="https://mail.google.com/mail/" target="blank">info@edulearn.com</a></p>
+      <p>Phone: +27 12 567 6790</p>
+      <p>Location: Johannesburg, South Africa</p>
+    </div>
+
+    
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <p>
+        <a href="https://www.facebook.com/" target="_blank"><img src="fb logo.PNG" width="50" height="50"></a> 
+        <a href="https://www.twitter.com/" target="_blank"><img src="twitter logo.PNG" width="50" height="50"></a> 
+        <a href="https://www.linkedin.com/" target="_blank"><img src="linkdin logo.PNG" width="50" height="50"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="ig logo.PNG" width="50" height="50"></a>
+      </p>
+    </div>
+  </div>
+      ©2025 EduLearn • All rights reserved • <a href="Privacy.html" target="Privacy" style="color: #e5e7eb;">Privacy policy</a> • <a href="Terms.html" target="Terms" style="color: #e5e7eb;"> Terms </a>
+    </footer>
+  </div>
+</body>
+</html>

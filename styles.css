@@ -1,0 +1,102 @@
+
+
+
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+nav ul {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+nav a {
+  padding: 10px 12px;
+  font-size: 1rem;
+}
+
+
+.btn { display: inline-block; min-width: 140px; text-align: center; }
+.btn a { color: inherit; text-decoration: none; display: block; }
+
+
+article { gap: 24px; align-items: flex-start; }
+@media (max-width: 900px) {
+  article { flex-direction: column; }
+  .homepage-image { align-self: center; }
+}
+
+
+html, body { height: 100%; }
+.container { min-height: 100vh; display: flex; flex-direction: column; }
+.container > footer { margin-top: auto; }
+
+
+.courses-grid { display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 1rem; overflow-x: auto; padding-bottom: 12px; }
+.course-card {
+  display: flex;
+  flex-direction: column;
+
+  width: clamp(340px, 36vw, 480px);
+  min-height: 480px; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+.course-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
+.course-card .btn { margin-top: auto; align-self: center; }
+
+
+/* Animated text: reduce size on small screens */
+.animated-text { height: 60px; padding: 0 24px; }
+.animated-text .line { font-size: clamp(18px, 4vw, 32px); line-height: 60px; }
+@media (max-width: 600px) {
+  .animated-text { height: 48px; padding: 0 12px; }
+  .animated-text .line { line-height: 48px; }
+}
+
+/* Hero slide-in adjustments for small screens (less offset) */
+@media (max-width: 600px) {
+  .hero { transform: translateX(20%); animation-duration: 700ms; }
+}
+
+/* Utility helpers */
+.center-block { margin-left: auto; margin-right: auto; }
+
+/* Accessibility: make focus outlines visible */
+:focus { outline: 3px solid rgba(56,189,248,.25); outline-offset: 2px; }
+
+/* Small print: avoid clobbering highly specific rules in inline <style>
+   This stylesheet is intentionally conservative. For larger layout changes
+   we can migrate more styles into this file later.
+*/
+
+/* Footer social icons: force horizontal layout and fixed icon size */
+footer .footer-section p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap; /* keep icons on one line when space allows */
+}
+
+footer .footer-section p a {
+  display: inline-block;
+}
+
+footer .footer-section p a img,
+footer .footer-section img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+@media (max-width: 420px) {
+  /* allow wrapping on very narrow screens */
+  footer .footer-section p { flex-wrap: wrap; }
+}

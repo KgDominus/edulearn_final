@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --muted: #141516;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+      --accent-2: #8b5cf6;
+      --ring: rgba(56, 189, 248, 0.45);
+      --radius: 18px;
+    }
+
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+      background: radial-gradient(1200px 800px at 15% -10%, rgba(56,189,248,.08), transparent 60%),
+                  radial-gradient(1200px 800px at 85% -10%, rgba(116, 104, 143, 0.08), transparent 60%),
+                  var(--clr-bg);
+      color: var(--clr-);
+      line-height: 1.65;
+      --_shadow:var(--_shadow, light blue);
+    }
+
+    .container { 
+        max-width: 1000px; margin: 0 auto; padding: 32px 20px; 
+    }
+
+    header { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 40px;
+     }
+
+    .brand { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px;
+     }
+
+    nav a {
+         margin-left: 20px; 
+         text-decoration: none; 
+         color: #e5e7eb; 
+        }
+
+    nav a:hover { 
+        color: #38bdf8;
+     }
+
+    h1, h2 { 
+        margin-top: 0; 
+    }
+    .about-section { 
+        margin-bottom: 60px; 
+    }
+    .about-section p { 
+        color: #171717;
+     }
+
+    .features {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+         gap: 24px;
+         margin-bottom: 60px;
+    }
+
+    .card {
+       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+       border: 1px solid rgba(148,163,184,.15);
+       border-radius: var(--radius);
+       padding: 24px;
+       text-align: center;
+       box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+
+    .card h3 { margin-top: 12px; }
+    .card p { color: var(--muted); }
+
+    img {
+      width: 230px;  
+      height:auto;
+    }
+
+    header {
+      background: linear-gradient(to right, white, #6a0dad, #0000ff); /* white → purple → blue */
+      color: white;
+      padding: 20px;
+      text-align: center;
+      background: white; 
+      color: purple;
+      padding: 20px;
+      text-align: center;
+     }
+
+      nav ul{
+      display: flex; 
+      list-style: none; 
+      gap: 2rem;}
+
+    nav a { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.18);
+      background: rgba(148,163,184,.08);
+      text-decoration: none;
+      color: purple;
+      transition: transform .15s ease;}
+
+    nav a:hover/*,nav a.active*/{ 
+      transform: translateY(-1px); border-color: rgba(56,189,248,.45);}
+
+     .footer-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+     gap: 30px;
+     max-width: 1100px;
+     margin: 0 auto;
+    }
+
+    
+     .footer-section h3 {
+     margin-bottom: 10px;
+     color: #38bdf8;
+     }
+
+    .footer-section ul {
+     list-style: none;
+     padding: 0;
+    }
+
+    .footer-section ul li {
+    margin-bottom: 6px;
+    }
+
+    .footer-section a {
+     color: #e5e7eb;
+     text-decoration: none;
+    }
+
+     .footer-section a:hover {
+     color: #38bdf8;
+     }
+
+     footer p {
+     margin: 6px 0;
+     }
+
+     footer .copyright {
+     text-align: center;
+     margin-top: 20px;
+     color: #94a3b8;
+     font-size: 14px;
+     }
+
+     footer {
+     background: linear-gradient(to bottom, white, #6a0dad, #0000ff);
+     color: white;
+     padding: 6px;
+     text-align: center;
+     }
+
+
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="edulearn logo.png" width="170" height="70">
+      </div>
+      <nav> 
+        <ul>
+          <li><a href="Home.html" class="nav-link active" data-page="Home_page">Home</a></li>
+          <li> <a href="About_Us.html" class="nav-link active" data-page="About_us"> About Us</a></li>
+          <li> <a href="Projects.html"class="nav-link active" data-page="course"> Projects</a> </li>
+          <li> <a href="Blog.html" class="nav-link active" data-page="About_us">Blog</a></li>
+          <li> <a href="Contact_us.html" class="nav-link active" data-page="contact">Contact Us </a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="about-section">
+      <h1>Our services</h1>
+      <p>
+        We are a student-focused tutoring website dedicated to helping learners achieve their academic goals.
+        We offer personalized support in a variety of subjects, making learning easier, more engaging, and more effective.
+        Whether you need help understanding difficult concepts, preparing for exams or building stronger study habits, we are 
+        here to connect you with the right tutors to guide you every step of the way.
+      </p>
+    </section>
+
+    <section>
+        <h1>Meet Us</h1>
+        <section class="features" id="features">
+     <div class="card">
+     <h3>Nompumelelo Skosana.</h3>
+     <img src="Mpumi.jpg" alt="Mpumi" width="200" height="300">
+     <p>
+        Hello! My name is Nompumelelo, and I am excited to be your English tutor. 
+        I believe that learning English should never feel overwhelming — it should be fun, practical, and easy to understand. 
+        My lessons are designed to build your confidence, whether you’re improving your grammar, writing skills, or conversational English.
+     </p>
+     </div>
+
+     <div class="card">
+     <h3>Melissa Ndlovu.</h3>
+     <img src="Mel.jpg" alt="Melissa" width="200" height="300">
+     <p>
+       Hi! My name is Melissa, and I am passionate about helping students discover their potential in mathematics. 
+       I believe every student is capable of understanding math with the right guidance and encouragement.
+        My approach is patient and supportive, focusing on breaking down difficult concepts into simple, manageable steps. 
+       Whether you need help with basic math skills, exam preparation, or advanced problem-solving, I am here to make learning engaging and meaningful.
+     </p>
+     </div>
+
+     <div class="card">
+     <h3>Keamogetswe Motswenyane.</h3>
+     <img src="Kea.jpg" alt="Keamogetswe" width="200" height="300">
+     <p>
+        Hello, I’m Keamogetswe, your dedicated science tutor! I believe that every student has the ability to succeed when given the right support and encouragement. 
+        Science is all about curiosity and discovery, and I strive to make each lesson exciting, clear, and practical. 
+        Whether you’re learning the basics or exploring advanced topics, I will guide you step by step, ensuring that complex ideas become easy to understand. 
+     </p>
+     </div>
+     </section>
+    </section>
+
+     <footer>
+     <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About_Us.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="Contact_us.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: <a href="https://mail.google.com/mail/" target="blank">info@edulearn.com</a></p>
+      <p>Phone: +27 12 567 6790</p>
+      <p>Location: Johannesburg, South Africa</p>
+    </div>
+
+    
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <p>
+        <a href="https://www.facebook.com/" target="_blank"><img src="fb logo.PNG" width="50" height="50"></a> 
+        <a href="https://www.twitter.com/" target="_blank"><img src="twitter logo.PNG" width="50" height="50"></a> 
+        <a href="https://www.linkedin.com/" target="_blank"><img src="linkdin logo.PNG" width="50" height="50"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="ig logo.PNG" width="50" height="50"></a>
+      </p>
+    </div>
+  </div>
+      ©2025 EduLearn • All rights reserved • <a href="Privacy.html" target="Privacy" style="color: #e5e7eb;">Privacy policy</a> • <a href="Terms.html" target="Terms" style="color: #e5e7eb;"> Terms </a>
+    </footer>
+  </div>
+</body>
+</html>
+
