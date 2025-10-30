@@ -1,87 +1,132 @@
-
-
-
 *, *::before, *::after { box-sizing: border-box; }
 img { max-width: 100%; height: auto; display: block; }
 
+html, body { height: 100%; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+.container { min-height: 100vh; display: flex; flex-direction: column; padding: 0 16px; }
+.container > footer { margin-top: auto; }
 
-.container {
-  padding-left: 16px;
-  padding-right: 16px;
+/*  NAVIGATION  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 0;
 }
-
 
 nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 nav a {
+  display: block;
   padding: 10px 12px;
   font-size: 1rem;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
 }
 
+nav a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
 
+/* === NAVIGATION RESPONSIVENESS === */
+@media (max-width: 900px) {
+  nav { flex-direction: column; align-items: flex-start; }
+  nav ul { justify-content: flex-start; width: 100%; }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+}
+
+/* === BUTTONS === */
 .btn { display: inline-block; min-width: 140px; text-align: center; }
 .btn a { color: inherit; text-decoration: none; display: block; }
 
-
-article { gap: 24px; align-items: flex-start; }
+/* === ARTICLE === */
+article { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
 @media (max-width: 900px) {
   article { flex-direction: column; }
   .homepage-image { align-self: center; }
 }
 
+/* === COURSES GRID === */
+.courses-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+}
 
-html, body { height: 100%; }
-.container { min-height: 100vh; display: flex; flex-direction: column; }
-.container > footer { margin-top: auto; }
-
-
-.courses-grid { display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 1rem; overflow-x: auto; padding-bottom: 12px; }
 .course-card {
   display: flex;
   flex-direction: column;
-
-  width: clamp(340px, 36vw, 480px);
-  min-height: 480px; 
+  width: clamp(300px, 36vw, 480px);
+  min-height: 480px;
   padding: 20px;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
-.course-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
-.course-card .btn { margin-top: auto; align-self: center; }
 
+.course-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
 
-/* Animated text: reduce size on small screens */
+.course-card .btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+/* ANIMATED TEXT */
 .animated-text { height: 60px; padding: 0 24px; }
 .animated-text .line { font-size: clamp(18px, 4vw, 32px); line-height: 60px; }
+
 @media (max-width: 600px) {
   .animated-text { height: 48px; padding: 0 12px; }
   .animated-text .line { line-height: 48px; }
 }
 
-/* Hero slide-in adjustments for small screens (less offset) */
+/*  HERO SLIDE-IN  */
 @media (max-width: 600px) {
   .hero { transform: translateX(20%); animation-duration: 700ms; }
 }
 
-/* Utility helpers */
-.center-block { margin-left: auto; margin-right: auto; }
-
-/* Accessibility: make focus outlines visible */
+/*  ACCESSIBILITY  */
 :focus { outline: 3px solid rgba(56,189,248,.25); outline-offset: 2px; }
 
-/* Small print: avoid clobbering highly specific rules in inline <style>
-   This stylesheet is intentionally conservative. For larger layout changes
-   we can migrate more styles into this file later.
-*/
-
-
+/*  FOOTER  */
 @media (max-width: 420px) {
-  /* allow wrapping on very narrow screens */
   footer .footer-section p { flex-wrap: wrap; }
 }
 
-/* Terms modal styles */
+/*  TERMS MODAL  */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -92,9 +137,8 @@ html, body { height: 100%; }
   z-index: 9999;
   padding: 20px;
 }
-.modal-backdrop.show {
-  display: flex;
-}
+.modal-backdrop.show { display: flex; }
+
 .modal {
   background: #fff;
   width: 100%;
@@ -120,7 +164,12 @@ html, body { height: 100%; }
 }
 
 .modal .btn { margin: 0; }
-.modal .btn.ghost { background: transparent; color: #111827; border: 1px solid #e6e9ef; }
+.modal .btn.ghost {
+  background: transparent;
+  color: #111827;
+  border: 1px solid #e6e9ef;
+}
+
 .terms-small {
   font-size: 0.9rem;
   color: #6b7280;
@@ -131,8 +180,8 @@ html, body { height: 100%; }
   .modal-body iframe { min-height: 320px; }
 }
 
-/* Cookies button inside modal */
-.cookies-btn{
+/*  COOKIES BUTTON  */
+.cookies-btn {
   padding: 6px 10px;
   font-size: 0.9rem;
   border-radius: 8px;
@@ -140,5 +189,6 @@ html, body { height: 100%; }
   color: #111827;
   border: 1px solid #e6e9ef;
 }
-.cookies-btn:hover{ filter: brightness(0.98); }
+.cookies-btn:hover { filter: brightness(0.98); }
+
 
