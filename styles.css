@@ -75,28 +75,70 @@ html, body { height: 100%; }
    we can migrate more styles into this file later.
 */
 
-/* Footer social icons: force horizontal layout and fixed icon size */
-footer .footer-section p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap; /* keep icons on one line when space allows */
-}
-
-footer .footer-section p a {
-  display: inline-block;
-}
-
-footer .footer-section p a img,
-footer .footer-section img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  display: inline-block;
-}
 
 @media (max-width: 420px) {
   /* allow wrapping on very narrow screens */
   footer .footer-section p { flex-wrap: wrap; }
 }
+
+/* Terms modal styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+.modal-backdrop.show {
+  display: flex;
+}
+.modal {
+  background: #fff;
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(2,6,23,0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  padding: 0;
+  overflow: auto;
+  flex: 1 1 auto;
+}
+.modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  min-height: 420px;
+}
+
+.modal .btn { margin: 0; }
+.modal .btn.ghost { background: transparent; color: #111827; border: 1px solid #e6e9ef; }
+.terms-small {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+@media (max-width:600px){
+  .modal { max-width: 92%; }
+  .modal-body iframe { min-height: 320px; }
+}
+
+/* Cookies button inside modal */
+.cookies-btn{
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e6e9ef;
+}
+.cookies-btn:hover{ filter: brightness(0.98); }
+

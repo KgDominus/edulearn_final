@@ -173,6 +173,7 @@
 
      footer p {
      margin: 6px 0;
+     display: inline-flex;
      }
 
      footer .copyright {
@@ -336,8 +337,90 @@
       </p>
     </div>
   </div>
-      ©2025 EduLearn • All rights reserved • <a href="Privacy.html" target="Privacy" style="color: #e5e7eb;">Privacy policy</a> • <a href="Terms.html" target="Terms" style="color: #e5e7eb;"> Terms </a>
+      ©2025 EduLearn • All rights reserved • <a href="Privacy.html" target="Privacy" style="color: #e5e7eb;">Privacy policy</a> • <a href="Terms.html" id="openTerms" style="color: #e5e7eb;"> Terms </a>
     </footer>
   </div>
+
+  <!-- Terms modal (shows Terms.html inside an iframe) -->
+  <div class="modal-backdrop" id="termsBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-body">
+        <iframe src="Terms.html" title="Terms of Use"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button id="cookiesBtn" class="btn ghost cookies-btn">Cookies</button>
+        <label style="display:flex;align-items:center;gap:8px;margin-left:8px;">
+          <input type="checkbox" id="dontShowAgain"> <span class="terms-small">Don't show again</span>
+        </label>
+        <div style="margin-left:auto;display:flex;gap:10px;">
+          <button id="acceptTermsBtn" class="btn">Accept</button>
+          <button id="closeTermsFooterBtn" class="btn ghost">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var backdrop = document.getElementById('termsBackdrop');
+      var openLink = document.getElementById('openTerms');
+      var cookiesBtn = document.getElementById('cookiesBtn');
+      var acceptBtn = document.getElementById('acceptTermsBtn');
+      var closeFooterBtn = document.getElementById('closeTermsFooterBtn');
+      var dontShow = document.getElementById('dontShowAgain');
+
+      function showModal(){
+        backdrop.classList.add('show');
+        backdrop.setAttribute('aria-hidden','false');
+      }
+      function hideModal(){
+        backdrop.classList.remove('show');
+        backdrop.setAttribute('aria-hidden','true');
+      }
+
+      // Open when the footer link is clicked
+      openLink && openLink.addEventListener('click', function(e){
+        e.preventDefault();
+        showModal();
+      });
+
+      // Close when clicking the backdrop
+      backdrop && backdrop.addEventListener('click', function(e){
+        if(e.target === backdrop) hideModal();
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && backdrop && backdrop.classList.contains('show')) hideModal();
+      });
+
+      // Cookies button opens the privacy page in a new tab
+      cookiesBtn && cookiesBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        try{ window.open('Privacy.html', '_blank'); }catch(err){ window.location.href = 'Privacy.html'; }
+      });
+
+      // Accept: remember preference if checked
+      acceptBtn && acceptBtn.addEventListener('click', function(){
+        if(dontShow && dontShow.checked){
+          try{ localStorage.setItem('edu_terms_accepted', '1'); }catch(e){}
+        }
+        hideModal();
+      });
+
+      // Close button (footer)
+      closeFooterBtn && closeFooterBtn.addEventListener('click', hideModal);
+
+      // Show modal on first visit if user hasn't accepted previously
+      try{
+        var accepted = localStorage.getItem('edu_terms_accepted');
+        if(!accepted){
+          window.addEventListener('load', function(){ setTimeout(showModal, 600); });
+        }
+      }catch(e){
+        window.addEventListener('load', function(){ setTimeout(showModal, 600); });
+      }
+    })();
+  </script>
 </body>
 </html>
